@@ -11,3 +11,10 @@ C:\Users\yakov\source\repos\WeaponCeater\WeaponCeater\obj\Debug\WeaponCeater.csp
 C:\Users\yakov\source\repos\WeaponCeater\WeaponCeater\obj\Debug\WeaponCeater.csproj.CoreCompileInputs.cache
 C:\Users\yakov\source\repos\WeaponCeater\WeaponCeater\obj\Debug\WeaponCeater.exe
 C:\Users\yakov\source\repos\WeaponCeater\WeaponCeater\obj\Debug\WeaponCeater.pdb
+C:\Users\yakov\Desktop\WeaponCreater\WeaponCeater\WeaponCeater\bin\Debug\WeaponCeater.exe.config
+C:\Users\yakov\Desktop\WeaponCreater\WeaponCeater\WeaponCeater\bin\Debug\WeaponCeater.exe
+C:\Users\yakov\Desktop\WeaponCreater\WeaponCeater\WeaponCeater\bin\Debug\WeaponCeater.pdb
+C:\Users\yakov\Desktop\WeaponCreater\WeaponCeater\WeaponCeater\obj\Debug\WeaponCeater.csprojResolveAssemblyReference.cache
+C:\Users\yakov\Desktop\WeaponCreater\WeaponCeater\WeaponCeater\obj\Debug\WeaponCeater.csproj.CoreCompileInputs.cache
+C:\Users\yakov\Desktop\WeaponCreater\WeaponCeater\WeaponCeater\obj\Debug\WeaponCeater.exe
+C:\Users\yakov\Desktop\WeaponCreater\WeaponCeater\WeaponCeater\obj\Debug\WeaponCeater.pdb
