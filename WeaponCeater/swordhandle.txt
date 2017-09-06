@@ -1,0 +1,6 @@
+fury 1 36 3 30 daemon 4 21 .
+wanderer 1 122 8 93 dwarf 10 22 .
+hit 2 67 9 67 human 7 23 .
+future 1 23 3 23 elf 2 24 .
+legend 2 74 2 82 orc 8 25 .
+king 2 54 4 44 orc 5 26 .

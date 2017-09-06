@@ -1,0 +1,1 @@
+Name FightSpeed Damage CriticalHitChance Value Creator Level PicName
