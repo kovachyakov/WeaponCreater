@@ -417,7 +417,7 @@ namespace WeaponCeater
                , legendarySword.ElementAt(q).Fightspeed
                , legendarySword.ElementAt(q).CriticalHitChance
                , legendarySword.ElementAt(q).Value);
-                legendarySword.ElementAt(q).Swordpic.Save(@"C:\Users\yakov\Desktop\" + legendarySword.ElementAt(q).Name + ".bmp");
+                legendarySword.ElementAt(q).Swordpic.Save(alfa + @"CreatedSword\" + legendarySword.ElementAt(q).Name + ".bmp");
                 LegendarySword.AddToBag(legendarySword.ElementAt(q), myBag);
             }
         }
