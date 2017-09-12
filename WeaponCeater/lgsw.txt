@@ -1,1 +1,3 @@
-Ultralord 5 100 20 1000 human 11 31 .
+UltraLord 5 100 20 1000 human 11 31 .
+TitanKiller 6 90 23 1000 orc 11 32 .
+SoulEater 4 120 21 1000 daemon 11 33 .

@@ -425,7 +425,7 @@ namespace WeaponCeater
         {
             Random e = new Random();
             int u = 0;
-            if ((u = e.Next(0, 15)) != 0)
+            if ((u = e.Next(0, 1)) != 0)
             {
 
                 Sword.MakeSword(Sblade, Shandle, mySword,alfa);
@@ -453,7 +453,7 @@ namespace WeaponCeater
                , legendarySword.ElementAt(q).Fightspeed
                , legendarySword.ElementAt(q).CriticalHitChance
                , legendarySword.ElementAt(q).Value);
-                legendarySword.ElementAt(q).Swordpic.Save(@"C:\Users\yakov\Desktop\" + legendarySword.ElementAt(q).Name + ".bmp");
+                legendarySword.ElementAt(q).Swordpic.Save(alfa + @"CreatedSword\" + legendarySword.ElementAt(q).Name + ".bmp");
                 LegendarySword.AddToBag(legendarySword.ElementAt(q), myBag);
             }
         }
