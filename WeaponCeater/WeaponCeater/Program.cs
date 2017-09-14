@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using System.Drawing;
 
@@ -12,24 +10,26 @@ namespace WeaponCeater
     {
         static void Main(string[] args)
         {
+            // all comments after the blocks of code
+
             string alfa = Directory.GetCurrentDirectory().Substring(0, Directory.GetCurrentDirectory().Length - 9 - 13);
             string SBway = alfa + "swordblade.txt";
             string SHway = alfa + "swordhandle.txt";
             string LGway = alfa + "lgsw.txt";
             string Picway = alfa + @"images\";
+            // .txt files way
 
             List<SwordBlade> Sblade = new List<SwordBlade>();
             List<SwordHandle> Shandle = new List<SwordHandle>();
             List<LegendarySword> legendarySword = new List<LegendarySword>();
-
+            List<Bag> myBag = new List<Bag>();
+            Sword mySword = new Sword();
             SwordBlade.ReadData(SBway, Sblade, Picway);
             SwordHandle.ReadData(SHway, Shandle, Picway);
             LegendarySword.ReadData(LGway, legendarySword, Picway);
-
-            int pocket = 0;
             Random e = new Random();
-            Sword mySword = new Sword();
-            List<Bag> myBag = new List<Bag>();
+            int pocket = 0;
+            // lists and variables initialization
 
             HowIGetWeapon.FindChest(mySword, legendarySword, Sblade, Shandle, myBag, alfa);
             HowIGetWeapon.KillEnemy(mySword, legendarySword, Sblade, Shandle, myBag, alfa);
@@ -39,6 +39,7 @@ namespace WeaponCeater
             HowIGetWeapon.KillEnemy(mySword, legendarySword, Sblade, Shandle, myBag, alfa);
             HowIGetWeapon.FindChest(mySword, legendarySword, Sblade, Shandle, myBag, alfa);
             HowIGetWeapon.KillEnemy(mySword, legendarySword, Sblade, Shandle, myBag, alfa);
+            // get 8 swords 
 
             Console.WriteLine();
             Console.WriteLine("Your swords:");
@@ -46,12 +47,16 @@ namespace WeaponCeater
             {
                 Console.WriteLine(myBag.ElementAt(i).Name);
             }
+            // output of the final bag
+
             int f = myBag.Count;
             for (int i = 0; i < f; f--)
             {
                 pocket += Bag.SellSword(myBag, i);
             }
+            Console.WriteLine();
             Console.WriteLine("If you sell all swords you will earn {0} coins.", pocket);
+            // calculate the total cost of the swords (.SellSword method)
 
             Console.WriteLine("Do you want to delet new pictures?(Y/N)");
             if (Console.ReadLine() == "Y")
@@ -66,6 +71,7 @@ namespace WeaponCeater
             {
                 Console.WriteLine("Check the directory " +alfa+ @"CreatedSword");
             }
+            // clear CreatedSword directory
 
             Console.Read();
         }
@@ -82,6 +88,8 @@ namespace WeaponCeater
         public string Creator { get; set; }
         public int Level { get; set; }
     }
+    // basic class, creates all the characteristics of a sword
+
     class SwordBlade : Weapon
     {
         public Bitmap bladepic { get; set; }
@@ -189,6 +197,8 @@ namespace WeaponCeater
 
         }
     }
+    // .ReadData method (read .txt files)
+
     class Sword : Weapon
     {
         public Bitmap Swordpic { get; set; }
@@ -271,7 +281,7 @@ namespace WeaponCeater
         }
         public static void AddToBag(Sword mySword, List<Bag> myBag)
         {
-            if (myBag.Count < 6)
+            if (myBag.Count < 6) // 6 is bag capacity (if you want to change it, change '6' and in .AddToBag method in LegendarySword class)
             {
                 Bag bag = new Bag
                 {
@@ -292,8 +302,15 @@ namespace WeaponCeater
                 Console.WriteLine("Your bag is full! Do you want to exchange weapon?(Y / N)");
                 if (Console.ReadLine() == "Y")
                 {
+                   
                     Console.WriteLine("Enter a number of the weapon that you want to discard.(1..{0})", myBag.Count);
-                    myBag.Remove(myBag.ElementAt(Convert.ToInt16(Console.ReadLine())-1));
+                    string op = Console.ReadLine();
+                    while ((Convert.ToInt32(op) > myBag.Count)||(Convert.ToInt32(op)==0))
+                    {
+                        Console.WriteLine("Enter number in (1..{0})", myBag.Count);
+                        op = Console.ReadLine();
+                    }
+                    myBag.Remove(myBag.ElementAt(Convert.ToInt16(op) -1));
                     Bag bag = new Bag
                     {
                         Creator = mySword.Creator,
@@ -318,12 +335,14 @@ namespace WeaponCeater
             }
         }
     }
+    // .MakeSword (combines sword blade and handle) + .AddToBag methods
+
     class LegendarySword : Weapon
     {
         public Bitmap Swordpic { get; set; }
         public static void AddToBag(LegendarySword mySword, List<Bag> myBag)
         {
-            if (myBag.Count < 6)
+            if (myBag.Count < 6) // 6 is bag capacity (if you want to change it, change '6' and in .AddToBag method in Sword class)
             {
                 Bag bag = new Bag
                 {
@@ -345,7 +364,13 @@ namespace WeaponCeater
                 if (Console.ReadLine() == "Y")
                 {
                     Console.WriteLine("Enter a number of the weapon that you want to discard.(1..{0})", myBag.Count);
-                    myBag.Remove(myBag.ElementAt(Convert.ToInt16(Console.ReadLine())-1));
+                    string op = Console.ReadLine();
+                    while ((Convert.ToInt32(op) > myBag.Count) || (Convert.ToInt32(op) == 0))
+                    {
+                        Console.WriteLine("Enter number in (1..{0})", myBag.Count);
+                        op = Console.ReadLine();
+                    }
+                    myBag.Remove(myBag.ElementAt(Convert.ToInt16(op) - 1));
                     Bag bag = new Bag
                     {
                         Creator = mySword.Creator,
@@ -419,6 +444,8 @@ namespace WeaponCeater
 
         }
     }
+    // .ReadData + .AddToBag methods
+
     class Bag :Weapon
     {
         public Bitmap Swordpic { get; set; }
@@ -429,6 +456,8 @@ namespace WeaponCeater
             return t; 
         }
     }
+    // .SellSword method
+
     class HowIGetWeapon 
     {
         public Bitmap pic { get; set; }
@@ -436,7 +465,7 @@ namespace WeaponCeater
         {
             Random e = new Random();
             int u = 0;
-            if ((u = e.Next(0, 5)) != 0)
+            if ((u = e.Next(0, 5)) != 0) // (0, 5) - 1/5 (20%)  chance to get legendary sword
             {
 
                 Sword.MakeSword(Sblade, Shandle, mySword,alfa);
@@ -472,7 +501,7 @@ namespace WeaponCeater
         {
             Random e = new Random();
             int u = 0;
-            if ((u = e.Next(0, 10)) != 0)
+            if ((u = e.Next(0, 10)) != 0) // (0, 10) - 1/10 (10%)  chance to get legendary sword
             {
 
                 Sword.MakeSword(Sblade, Shandle, mySword,alfa);
@@ -505,5 +534,5 @@ namespace WeaponCeater
             }
         }
     }
-
+    // .FindChest + .KillEnemy  methods
 }
